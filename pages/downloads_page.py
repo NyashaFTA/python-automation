@@ -84,7 +84,18 @@ class DownloadsPage(BasePage):
     }
 
     # Действия
-    
+    def is_client_available(self, client_name):
+
+        client_data = self.CLIENTS[client_name]
+
+        self.click(client_data["tab"])
+
+        return (
+            client_data["url"] in self.driver.current_url
+            and self.wait_visible(client_data["header"])
+            and self.wait_visible(client_data["download"])
+        )
+
     # Проверки
     def is_loaded(self):
         return self.wait_visible(self.WINDOWS_TAB_BUTTON)
