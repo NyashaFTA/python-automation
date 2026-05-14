@@ -1,13 +1,11 @@
-from pages.base_page import BasePage
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
+from pages.base_page import BasePage
 
 class PersonsPage(BasePage):
 
     URL = "https://trueconf.ru/persons"
 
     # Локаторы
-    
     HEADER = (By.XPATH, "//h1[contains(text(),'Мой профиль')]")
     TORSO_BUTTON = (By.CSS_SELECTOR, ".header-menu__btn--user-login")
     ACCOUNT_DROPDOWN_LOGOUT_BUTTON = (By.CSS_SELECTOR, "a[href$='/logout/']")
@@ -40,6 +38,5 @@ class PersonsPage(BasePage):
         self.click_download_in_dropdown_button
 
     # Проверки
-
     def is_loaded(self):
-        self.wait_visible(self.HEADER)
+        return self.wait_visible(self.HEADER)

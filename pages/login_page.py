@@ -1,5 +1,5 @@
-from pages.base_page import BasePage
 from selenium.webdriver.common.by import By
+from pages.base_page import BasePage
 
 class LoginPage(BasePage):
 
@@ -31,6 +31,5 @@ class LoginPage(BasePage):
         self.click_login_button()
 
     # Проверки
-
     def is_loaded(self):
         return self.wait_visible(self.LOGIN_FIELD)
