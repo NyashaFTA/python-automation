@@ -1,10 +1,11 @@
-from pages.main_page import MainPage
-from pages.login_page import LoginPage
-from pages.downloads_page import DownloadsPage
 import requests
+import time
+from pages.downloads_page import DownloadsPage
+from pages.login_page import LoginPage
+from pages.main_page import MainPage
 from pages.persons_page import PersonsPage
 from pages.registration_page import RegistrationPage
-import time
+
 
 def test_login(driver, test_user):
 
@@ -20,9 +21,9 @@ def test_login(driver, test_user):
 
     main_page.open()
 
-    assert main_page.is_download_button_in_header_visible()
+    assert main_page.is_loaded()
 
-    time.sleep(3) # а иначе в меня плюнет 503
+    time.sleep(3) # А иначе плюёт 503
 
     response = requests.get("https://trueconf.ru")
     assert response.status_code == 200
@@ -37,13 +38,11 @@ def test_login(driver, test_user):
 
     main_page.click_torso_button()
 
-    login_page.is_loaded()
-
     login_page.login(test_user)
 
     login_page.click_login_button()
     
-    persons_page.is_loaded()
+    persons_page.is_loaded() # Необходимо явное ожидание
 
     persons_page.go_to_downloads()
 
