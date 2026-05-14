@@ -6,7 +6,7 @@ class DownloadsPage(BasePage):
     URL = "https://trueconf.ru/downloads/windows.html"
 
     # Локаторы
-        # Кнопки
+    # Кнопки
     WINDOWS_TAB_BUTTON = (By.XPATH, "//a[@href='https://trueconf.ru/downloads/windows.html']")
     MAC_TAB_BUTTON = (By.XPATH, "//a[@href='https://trueconf.ru/downloads/mac.html']")
     LINUX_TAB_BUTTON = (By.XPATH, "//a[@href='https://trueconf.ru/downloads/linux.html']")
@@ -22,16 +22,16 @@ class DownloadsPage(BasePage):
     AVRORA_DOWNLOAD_BUTTON = (By.XPATH, "//span[text()='Запросить доступ']")
     ANDROID_TV_DOWNLOAD_BUTTON = (By.CSS_SELECTOR, "[data-ga-event='trueconf_android']")
 
-        # Маркеры
+    # Маркеры
     WINDOWS_TAB_HEADER = (By.XPATH, "//h1[contains(text(),'Windows')]")
     MAC_TAB_HEADER = (By.XPATH, "//h1[contains(text(),'macOS')]")
     LINUX_TAB_HEADER = (By.XPATH, "//h1[contains(text(),'Linux')]")
-    IOS_TAB_HEADER = (By.XPATH,"//h1[contains(text(),'Видеозвонки и конференции')]")
+    IOS_TAB_HEADER = (By.XPATH, "//h1[contains(text(),'Видеозвонки и конференции')]")
     ANDROID_TAB_HEADER = (By.XPATH, "//h1[contains(text(),'Android')]")
     AVRORA_TAB_HEADER = (By.XPATH, "//h1[contains(text(),'Аврора')]")
     ANDROID_TV_TAB_HEADER = (By.XPATH, "//h1[contains(text(),'Android TV')]")
 
-        #Клиенты
+    #Клиенты
     CLIENTS = {
         "mac": {
             "tab": MAC_TAB_BUTTON,
@@ -74,14 +74,13 @@ class DownloadsPage(BasePage):
             "header": ANDROID_TV_TAB_HEADER,
             "download": ANDROID_TV_DOWNLOAD_BUTTON
         },
+
         "windows": {
             "tab": WINDOWS_TAB_BUTTON,
             "url": "https://trueconf.ru/downloads/windows.html",
             "header": WINDOWS_TAB_HEADER,
             "download": WINDOWS_DOWNLOAD_BUTTON
         },
-
-
     }
 
     # Действия
