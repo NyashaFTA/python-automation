@@ -6,7 +6,6 @@ from pages.main_page import MainPage
 from pages.persons_page import PersonsPage
 from pages.registration_page import RegistrationPage
 
-
 def test_login(driver, test_user):
 
     main_page = MainPage(driver)
