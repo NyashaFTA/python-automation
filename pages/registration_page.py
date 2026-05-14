@@ -14,7 +14,6 @@ class RegistrationPage(BasePage):
     AGREEMENT_CHECKBOX = (By.ID, "person-reg-personal_data_processing_consent_checkbox")
     REGISTER_USER_BUTTON = (By.ID, "html")
 
-
     # Действия
     def enter_username(self, login):
         self.type(self.USERNAME_FIELD, login)
