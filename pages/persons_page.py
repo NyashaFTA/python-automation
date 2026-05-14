@@ -16,10 +16,10 @@ class PersonsPage(BasePage):
 
     # Действия
     def click_torso_button(self):
-        self.safe_click(self.TORSO_BUTTON)
+        self.click(self.TORSO_BUTTON)
     
     def click_dropdown_logout_button(self):
-        self.safe_click(self.ACCOUNT_DROPDOWN_LOGOUT_BUTTON)
+        self.click(self.ACCOUNT_DROPDOWN_LOGOUT_BUTTON)
 
     def wait_for_login(self):
 
@@ -34,7 +34,7 @@ class PersonsPage(BasePage):
         self.click(self.DOWNLOAD_IN_DROPDOWN_BUTTON)
 
     def wait_until_loaded(self):
-        self.find_visible(self.HEADER)
+        self.wait_visible(self.HEADER)
     
     def logout(self):
 

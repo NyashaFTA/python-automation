@@ -20,30 +20,30 @@ class RegistrationPage(BasePage):
     def enter_username(self, login):
         self.driver.find_element(
             *self.USERNAME_FIELD
-        ).send_keys(login)
+        ).type(login)
     
     def enter_password(self, password):
         self.driver.find_element(
             *self.PASSWORD_FIELD
-        ).send_keys(password)
+        ).type(password)
 
     def enter_email(self, email):
         self.driver.find_element(
             *self.EMAIL_FIELD
-        ).send_keys(email)
+        ).type(email)
 
     def enter_full_name(self, full_name):
         self.driver.find_element(
             *self.FULL_NAME_FIELD
-        ).send_keys(full_name)
+        ).type(full_name)
 
     def click_privacy_checkbox(self):
-        self.safe_click(self.PRIVACY_CHECKBOX)
+        self.click(self.PRIVACY_CHECKBOX)
 
     def click_agreement_checkbox(self):
-        self.safe_click(self.AGREEMENT_CHECKBOX)
+        self.click(self.AGREEMENT_CHECKBOX)
 
     def click_register_user_button(self):
-        self.safe_click(self.REGISTER_USER_BUTTON)
+        self.click(self.REGISTER_USER_BUTTON)
 
     # Проверки

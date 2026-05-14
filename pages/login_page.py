@@ -15,19 +15,19 @@ class LoginPage(BasePage):
     # Действия
     def enter_login(self, login):
 
-        field = self.find_visible(self.LOGIN_FIELD)
+        field = self.wait_visible(self.LOGIN_FIELD)
         
         field.click()
         field.clear()
-        field.send_keys(login)
+        field.type(login)
     
     def enter_password(self, password):
-        self.find_visible(
+        self.wait_visible(
             self.PASSWORD_FIELD
-        ).send_keys(password)
+        ).type(password)
 
     def click_login_button(self):
-        self.find_visible(
+        self.wait_visible(
             self.LOGIN_BUTTON
         ).click()
 
@@ -37,6 +37,6 @@ class LoginPage(BasePage):
         ).click()
 
     def wait_until_loaded(self):
-        self.find_visible(self.HEADER)
+        self.wait_visible(self.HEADER)
 
     # Проверки

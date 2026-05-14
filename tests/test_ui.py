@@ -60,7 +60,7 @@ def test_login(driver, test_user):
 
     for client_name, client_data in downloads_page.CLIENTS.items():
 
-        downloads_page.safe_click(client_data["tab"])
+        downloads_page.click(client_data["tab"])
 
         assert client_data["url"] in driver.current_url
 
