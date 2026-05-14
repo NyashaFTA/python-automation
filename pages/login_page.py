@@ -10,33 +10,27 @@ class LoginPage(BasePage):
     LOGIN_FIELD = (By.ID, "form-login")
     PASSWORD_FIELD = (By.ID, "form-password")
     LOGIN_BUTTON = (By.XPATH,"//button[text()='Войти']")
-    TO_REGISTRATION_BUTTON = (By.CSS_SELECTOR,"a[href*='registration-standard']")
+    GO_TO_REGISTRATION_FORM_BUTTON = (By.CSS_SELECTOR,"a[href*='registration-standard']")
 
     # Действия
     def enter_login(self, login):
-
-        field = self.wait_visible(self.LOGIN_FIELD)
-        
-        field.click()
-        field.clear()
-        field.type(login)
+        self.type(self.LOGIN_FIELD, login)
     
     def enter_password(self, password):
-        self.wait_visible(
-            self.PASSWORD_FIELD
-        ).type(password)
+        self.type(self.PASSWORD_FIELD, password)
 
     def click_login_button(self):
-        self.wait_visible(
-            self.LOGIN_BUTTON
-        ).click()
+        self.click(self.LOGIN_BUTTON)
 
-    def click_to_registration_button(self):
-        self.driver.find_element(
-            *self.TO_REGISTRATION_BUTTON
-        ).click()
+    def go_to_registration(self):
+        self.click(self.GO_TO_REGISTRATION_FORM_BUTTON)
 
-    def wait_until_loaded(self):
-        self.wait_visible(self.HEADER)
+    def login(self, user):
+        self.enter_login(user.login)
+        self.enter_password(user.password)
+        self.click_login_button()
 
     # Проверки
+
+    def is_loaded(self):
+        return self.wait_visible(self.LOGIN_FIELD)

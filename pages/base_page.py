@@ -13,14 +13,19 @@ class BasePage:
         )
 
     def click(self, locator, timeout=10):
-        element = self.wait_visible(locator, timeout)
-        element.click()
+        element = WebDriverWait(self.driver, timeout).until(
+            EC.presence_of_element_located(locator)
+    )
+
+        self.driver.execute_script("arguments[0].click();", element)
 
     def type(self, locator, text, timeout=10, clear=True):
         element = self.wait_visible(locator, timeout)
+
         if clear:
             element.clear()
-        element.type(text)
+
+        element.send_keys(text)
 
     def get_text(self, locator, timeout=10):
         element = self.wait_visible(locator, timeout)

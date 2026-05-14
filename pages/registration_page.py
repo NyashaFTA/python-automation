@@ -18,24 +18,16 @@ class RegistrationPage(BasePage):
 
     # Действия
     def enter_username(self, login):
-        self.driver.find_element(
-            *self.USERNAME_FIELD
-        ).type(login)
+        self.type(self.USERNAME_FIELD, login)
     
     def enter_password(self, password):
-        self.driver.find_element(
-            *self.PASSWORD_FIELD
-        ).type(password)
+        self.type(self.PASSWORD_FIELD, password)
 
     def enter_email(self, email):
-        self.driver.find_element(
-            *self.EMAIL_FIELD
-        ).type(email)
+        self.type(self.EMAIL_FIELD, email)
 
     def enter_full_name(self, full_name):
-        self.driver.find_element(
-            *self.FULL_NAME_FIELD
-        ).type(full_name)
+        self.type(self.FULL_NAME_FIELD, full_name)
 
     def click_privacy_checkbox(self):
         self.click(self.PRIVACY_CHECKBOX)
@@ -45,5 +37,14 @@ class RegistrationPage(BasePage):
 
     def click_register_user_button(self):
         self.click(self.REGISTER_USER_BUTTON)
+    
+    def registration(self, user):
+        self.enter_username(user.login)
+        self.enter_password(user.password)
+        self.enter_email(user.email)
+        self.enter_full_name(user.full_name)
+        self.click_privacy_checkbox()
+        self.click_agreement_checkbox()
+        self.click_register_user_button()
 
     # Проверки

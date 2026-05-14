@@ -29,34 +29,23 @@ def test_login(driver, test_user):
 
     main_page.click_torso_button()
 
-    login_page.click_to_registration_button()
+    login_page.go_to_registration()
 
-    registration_page.enter_username(test_user.login)
-    registration_page.enter_password(test_user.password)
-    registration_page.enter_email(test_user.email)
-    registration_page.enter_full_name(test_user.full_name)
-
-    registration_page.click_privacy_checkbox()
-    
-    registration_page.click_agreement_checkbox()
-
-    registration_page.click_register_user_button()
+    registration_page.registration(test_user)
 
     persons_page.logout()
 
     main_page.click_torso_button()
 
-    login_page.wait_until_loaded()
+    login_page.is_loaded()
 
-    login_page.enter_login(test_user.login)
-    login_page.enter_password(test_user.password)
+    login_page.login(test_user)
 
     login_page.click_login_button()
     
-    persons_page.wait_for_login()
+    persons_page.is_loaded()
 
-    persons_page.click_download_in_header_button
-    persons_page.click_download_in_dropdown_button
+    persons_page.go_to_downloads()
 
     for client_name, client_data in downloads_page.CLIENTS.items():
 
@@ -64,9 +53,9 @@ def test_login(driver, test_user):
 
         assert client_data["url"] in driver.current_url
 
-        assert downloads_page.is_visible(client_data["header"])
+        assert downloads_page.wait_visible(client_data["header"])
 
-        assert downloads_page.is_visible(client_data["download"])
+        assert downloads_page.wait_visible(client_data["download"])
 
     assert driver.current_url == "https://trueconf.ru/downloads/windows.html"
 

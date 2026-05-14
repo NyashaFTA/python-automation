@@ -21,25 +21,25 @@ class PersonsPage(BasePage):
     def click_dropdown_logout_button(self):
         self.click(self.ACCOUNT_DROPDOWN_LOGOUT_BUTTON)
 
-    def wait_for_login(self):
-
-        WebDriverWait(self.driver, 10).until(
-            lambda d: "persons" in d.current_url
-        )
-    
     def click_download_in_header_button(self):
         self.click(self.DOWNLOAD_IN_HEADER_BUTTON)
     
     def click_download_in_dropdown_button(self):
         self.click(self.DOWNLOAD_IN_DROPDOWN_BUTTON)
 
-    def wait_until_loaded(self):
-        self.wait_visible(self.HEADER)
-    
     def logout(self):
 
-        self.wait_until_loaded()
+        self.is_loaded()
 
         self.click_torso_button()
         self.click_dropdown_logout_button()
+
+    def go_to_downloads(self):
+
+        self.click_download_in_header_button
+        self.click_download_in_dropdown_button
+
     # Проверки
+
+    def is_loaded(self):
+        self.wait_visible(self.HEADER)
