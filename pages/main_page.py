@@ -1,6 +1,4 @@
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 from pages.base_page import BasePage
 
 class MainPage(BasePage):
@@ -29,21 +27,12 @@ class MainPage(BasePage):
     def click_dropdown_logout_button(self):
         self.click(self.ACCOUNT_DROPDOWN_LOGOUT_BUTTON)
 
-    # Проверки
-    def is_download_button_in_header_visible(self):
-        wait = WebDriverWait(self.driver, 10)
-
-        element = wait.until(
-          EC.visibility_of_element_located(self.DOWNLOAD_IN_HEADER_BUTTON)
-        )
-
-        return element.is_displayed()
+    def is_download_in_header_button_visible(self):
+        self.wait_visible(self.DOWNLOAD_IN_HEADER_BUTTON)
     
-    def is_download_button_in_dropdown_visible(self):
-        wait = WebDriverWait(self.driver, 10)
-
-        element = wait.until(
-          EC.visibility_of_element_located(self.DOWNLOAD_IN_DROPDOWN_BUTTON)
-        )
-
-        return element.is_displayed()
+    def is_download_in_dropdown_button_visible(self):
+        self.wait_visible(self.DOWNLOAD_IN_DROPDOWN_BUTTON)
+    
+    # Проверки
+    def is_loaded(self):
+        return self.wait_visible(self.DOWNLOAD_IN_HEADER_BUTTON)

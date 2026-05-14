@@ -32,7 +32,6 @@ class DownloadsPage(BasePage):
     ANDROID_TV_TAB_HEADER = (By.XPATH, "//h1[contains(text(),'Android TV')]")
 
         #Клиенты
-    
     CLIENTS = {
         "mac": {
             "tab": MAC_TAB_BUTTON,
@@ -85,10 +84,8 @@ class DownloadsPage(BasePage):
 
     }
 
-
     # Действия
     
-    
     # Проверки
-    def windows_header_is_visible(self):
-        self.wait_visible(self.HEADER)
+    def is_loaded(self):
+        return self.wait_visible(self.WINDOWS_TAB_BUTTON)

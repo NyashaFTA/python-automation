@@ -1,12 +1,11 @@
-from pages.base_page import BasePage
 from selenium.webdriver.common.by import By
+from pages.base_page import BasePage
 
 class RegistrationPage(BasePage):
 
     URL = "https://trueconf.ru/products/online/registration-standard.html"
 
     # Локаторы
-
     USERNAME_FIELD = (By.ID, "person-reg-login")
     PASSWORD_FIELD = (By.ID, "person-reg-password")
     EMAIL_FIELD = (By.ID, "person-reg-email")
@@ -48,3 +47,5 @@ class RegistrationPage(BasePage):
         self.click_register_user_button()
 
     # Проверки
+    def is_loaded(self):
+        return self.wait_visible(self.REGISTER_USER_BUTTON)
