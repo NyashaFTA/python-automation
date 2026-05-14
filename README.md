@@ -1,7 +1,7 @@
 # Тестовое задание для Trueconf
 
 ## Стек
-- Python
+- Python 3.14.5
 - Pytest
 - Selenium
 - Requests
@@ -11,6 +11,12 @@
 
 ```bash
 pip install -r requirements.txt
+```
+
+## Запуск
+
+```bash
+pytest
 ```
 
 ## Исполнитель

@@ -9,8 +9,8 @@ class LoginPage(BasePage):
     HEADER = (By.XPATH, "//h1[contains(text(),'Для продолжения требуется авторизация')]")
     LOGIN_FIELD = (By.ID, "form-login")
     PASSWORD_FIELD = (By.ID, "form-password")
-    LOGIN_BUTTON = (By.XPATH,"//button[text()='Войти']")
-    GO_TO_REGISTRATION_FORM_BUTTON = (By.CSS_SELECTOR,"a[href*='registration-standard']")
+    LOGIN_BUTTON = (By.XPATH, "//button[text()='Войти']")
+    GO_TO_REGISTRATION_FORM_BUTTON = (By.CSS_SELECTOR, "a[href*='registration-standard']")
 
     # Действия
     def enter_login(self, login):
