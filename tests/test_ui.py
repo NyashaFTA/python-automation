@@ -29,19 +29,29 @@ def test_login(driver, test_user):
 
     main_page.click_torso_button()
 
+    login_page.is_loaded()
+
     login_page.go_to_registration()
+
+    registration_page.is_loaded()
 
     registration_page.registration(test_user)
 
+    persons_page.is_loaded()
+
     persons_page.logout()
 
+    main_page.is_loaded() 
+
     main_page.click_torso_button()
+
+    login_page.is_loaded()
 
     login_page.login(test_user)
 
     login_page.click_login_button()
     
-    persons_page.is_loaded() # Необходимо явное ожидание
+    persons_page.is_loaded() 
 
     persons_page.go_to_downloads()
 
