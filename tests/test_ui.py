@@ -55,15 +55,9 @@ def test_login(driver, test_user):
 
     persons_page.go_to_downloads()
 
-    for client_name, client_data in downloads_page.CLIENTS.items():
+    for client_name in downloads_page.CLIENTS:
 
-        downloads_page.click(client_data["tab"])
-
-        assert client_data["url"] in driver.current_url
-
-        assert downloads_page.wait_visible(client_data["header"])
-
-        assert downloads_page.wait_visible(client_data["download"])
+        assert downloads_page.is_client_available(client_name)
 
     assert driver.current_url == "https://trueconf.ru/downloads/windows.html"
 
