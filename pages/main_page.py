@@ -8,7 +8,6 @@ class MainPage(BasePage):
     URL = "https://trueconf.ru/"
 
     # Локаторы
-    #DOWNLOAD_BUTTON = (By.XPATH, "//span[text()='Скачать']")
     DOWNLOAD_IN_HEADER_BUTTON = (By.ID, 'hm-sbtn-1')
     DOWNLOAD_IN_DROPDOWN_BUTTON = (By.CLASS_NAME, 'header-menu__card-main')
     TORSO_BUTTON = (By.CSS_SELECTOR, ".header-menu__btn--user-login")

@@ -87,9 +87,8 @@ class DownloadsPage(BasePage):
 
 
     # Действия
-    def is_windows_header_visible(self):
-        return self.driver.find_element(
-            *self.WINDOWS_HEADER
-        ).is_displayed()
+    
     
     # Проверки
+    def windows_header_is_visible(self):
+        self.wait_visible(self.HEADER)
