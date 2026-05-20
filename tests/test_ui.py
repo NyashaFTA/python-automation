@@ -6,7 +6,6 @@ from pages.main_page import MainPage
 from pages.persons_page import PersonsPage
 from pages.registration_page import RegistrationPage
 
-
 def test_login(driver, test_user):
 
     main_page = MainPage(driver)
@@ -30,9 +29,15 @@ def test_login(driver, test_user):
 
     main_page.click_torso_button()
 
+    login_page.is_loaded()
+
     login_page.go_to_registration()
 
+    registration_page.is_loaded()
+
     registration_page.registration(test_user)
+
+    persons_page.is_loaded()
 
     persons_page.logout()
 
@@ -40,23 +45,19 @@ def test_login(driver, test_user):
 
     main_page.click_torso_button()
 
+    login_page.is_loaded()
+
     login_page.login(test_user)
 
     login_page.click_login_button()
     
-    persons_page.is_loaded() # Необходимо явное ожидание
+    persons_page.is_loaded() 
 
     persons_page.go_to_downloads()
 
-    for client_name, client_data in downloads_page.CLIENTS.items():
+    for client_name in downloads_page.CLIENTS:
 
-        downloads_page.click(client_data["tab"])
-
-        assert client_data["url"] in driver.current_url
-
-        assert downloads_page.wait_visible(client_data["header"])
-
-        assert downloads_page.wait_visible(client_data["download"])
+        assert downloads_page.is_client_available(client_name)
 
     assert driver.current_url == "https://trueconf.ru/downloads/windows.html"
 
