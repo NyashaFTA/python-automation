@@ -34,8 +34,8 @@ class PersonsPage(BasePage):
 
     def go_to_downloads(self):
 
-        self.click_download_in_header_button
-        self.click_download_in_dropdown_button
+        self.click_download_in_header_button()
+        self.click_download_in_dropdown_button()
 
     # Проверки
     def is_loaded(self):

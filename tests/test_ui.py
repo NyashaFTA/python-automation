@@ -36,6 +36,8 @@ def test_login(driver, test_user):
 
     persons_page.logout()
 
+    main_page.is_loaded()
+
     main_page.click_torso_button()
 
     login_page.login(test_user)
