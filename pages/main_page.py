@@ -20,6 +20,11 @@ class MainPage(BasePage):
     
     def click_download_in_dropdown_button(self):
         self.click(self.DOWNLOAD_IN_DROPDOWN_BUTTON)
+    
+    def go_to_downloads(self):
+
+        self.click_download_in_header_button()
+        self.click_download_in_dropdown_button()
 
     def click_torso_button(self):
         self.click(self.TORSO_BUTTON)
